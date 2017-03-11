@@ -12,6 +12,7 @@
 enum Model {
     boltzmann,
     expdecay,
+    fett,
     gaussian,
     hill,
     ic50,

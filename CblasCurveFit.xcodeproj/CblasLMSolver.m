@@ -11,7 +11,7 @@
 #define MAX_ITER 500
 #define LMS_MAX(a, b) ((a) > (b) ? (a):(b))
 
-#include <vecLib/cblas.h>
+#import <Accelerate/Accelerate.h>
 #import "CblasLMSolver.h"
 
 @implementation CblasLMSolver
@@ -41,6 +41,7 @@
                                                     error:nil];
         lines = [fileContents componentsSeparatedByString:@"\n"];
         strToNum = [[NSNumberFormatter alloc] init];
+        strToNum.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];   // We want to use "." for decimal point, regardless of location
         xvals = [[NSMutableArray alloc] init];
         yvals = [[NSMutableArray alloc] init];
         for (NSString *line in lines) {
@@ -60,6 +61,11 @@
                 varlen = 4;
                 break;
             case expdecay:
+                varlen = 3;
+                break;
+            case fett:
+                varlen = 2;
+                break;
             case hill:
             case ic50:
             case modsin:
@@ -113,6 +119,9 @@
             case expdecay:
                 m[i] = var[0] + var[1] * exp(-var[2] * xi);
                 break;
+            case fett:
+                m[i] = var[0] * pow(xi, var[1]);
+                break;
             case gaussian:
                 m[i] = var[0] + var[1] * exp(-(xi - var[2]) * (xi - var[2]) /
                                              (var[3] * var[3]));
@@ -158,6 +167,10 @@
                 d1[i] = 1.0;
                 d2[i] = exp(-var[2]*xi);
                 d3[i] = -xi*var[1]*exp(-var[2]*xi);
+                break;
+            case fett:
+                d1[i] = pow(xi, var[1]);
+                d2[i] = var[0] * pow(xi, var[1]) * log(xi);
                 break;
             case gaussian:
                 d1[i] = 1.0;
@@ -231,6 +244,14 @@
                 jac[l] = -d4[i];
                 break;
             case expdecay:
+                jac[i] = -d1[i];
+                jac[j] = -d2[i];
+                jac[k] = -d3[i];
+                break;
+            case fett:
+                jac[i] = -d1[i];
+                jac[j] = -d2[i];
+                break;
             case hill:
             case ic50:
             case modsin:

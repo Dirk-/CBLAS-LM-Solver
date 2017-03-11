@@ -8,9 +8,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <vecLib/cblas.h>
-#include <vecLib/clapack.h>
 #include "lmsolver_functions.h"
+
+#import <Accelerate/Accelerate.h>
 
 void linalg_solve(double *A, int N, double *g, double *h)
 {

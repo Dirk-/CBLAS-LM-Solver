@@ -26,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		436F6B771E7468010052BB95 /* sampleinput_gaussian.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sampleinput_gaussian.txt; sourceTree = "<group>"; };
+		436F6B781E7473F30052BB95 /* sampleinput_fett.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sampleinput_fett.txt; sourceTree = "<group>"; };
 		DC38695913C9052E00D0CA08 /* CblasCurveFit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CblasCurveFit; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC38695D13C9052E00D0CA08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC38696013C9052E00D0CA08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +86,8 @@
 				DC38696013C9052E00D0CA08 /* main.m */,
 				DC38696413C9052E00D0CA08 /* CblasCurveFit.1 */,
 				DC38696213C9052E00D0CA08 /* Supporting Files */,
+				436F6B771E7468010052BB95 /* sampleinput_gaussian.txt */,
+				436F6B781E7473F30052BB95 /* sampleinput_fett.txt */,
 			);
 			path = CblasCurveFit;
 			sourceTree = "<group>";

@@ -33,6 +33,8 @@ int main (int argc, const char * argv[])
         myModel = boltzmann;
     } else if ([modelName isEqualToString:@"expdecay"]) {
         myModel = expdecay;
+    } else if ([modelName isEqualToString:@"fett"]) {
+        myModel = fett;
     } else if ([modelName isEqualToString:@"gaussian"]) {
         myModel = gaussian;
     } else if ([modelName isEqualToString:@"hill"]) {
