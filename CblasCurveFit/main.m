@@ -13,7 +13,6 @@ void usage(const char *argv[]);
 
 int main (int argc, const char * argv[])
 {
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     NSUserDefaults *args = [NSUserDefaults standardUserDefaults];
     CblasLMSolver *solver;
     // initialize defaults
@@ -67,8 +66,6 @@ int main (int argc, const char * argv[])
     
     NSLog(@"Success");
     
-    [solver release];
-    [pool drain];
     return 0;
 }
 

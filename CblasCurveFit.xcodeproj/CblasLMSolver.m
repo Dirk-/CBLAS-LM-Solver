@@ -101,7 +101,6 @@
             y[i] = [[yvals objectAtIndex:i] doubleValue];
         }
         
-        [strToNum release];
     } 
     return self;
 }
@@ -362,7 +361,6 @@
     free((void *) d2);
     free((void *) d3);
     free((void *) d4);
-    [super dealloc];
 }
 
 @end
